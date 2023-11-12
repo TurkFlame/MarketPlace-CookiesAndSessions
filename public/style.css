@@ -1,0 +1,128 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #22092C;
+    height: 100vh;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+div {
+    background-color: white;
+    width: 60%;
+    max-width: 400px;
+    height: fit-content;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+header {
+    background-color: white;
+    height: 5vh;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+i {
+    color: #BE3144;
+    transition: all 0.3s ease-in-out;
+}
+
+i:hover {
+    transform: translateY(-20%);
+    cursor: pointer;
+}
+
+li {
+    font-size: 20px;
+}
+
+.fa-cart-shopping:hover {
+    color: rgb(0, 218, 0) !important;
+}
+
+.fa-star:hover {
+    color: rgb(255, 217, 0) !important;
+}
+
+i:active {
+    color: black;
+}
+
+a:not(:has(> i)) {
+    position: relative;
+    right: -50%;
+    transform: translate(-50%);
+    width: fit-content;
+    color: #872341;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+a:not(:has(> i))::before,
+a:not(:has(> i))::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+a:not(:has(> i))::before {
+    background-color: #872341;
+    height: 2px;
+    bottom: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a:not(:has(> i))::after {
+    content: attr(data-replace);
+    height: 100%;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #872341;
+}
+
+a:not(:has(> i)):hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}
+
+a:not(:has(> i)):hover::after {
+    transform: translate3d(0, 0, 0);
+}
+
+a:not(:has(> i)) span {
+    display: inline-block;
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a:not(:has(> i)):hover span {
+    transform: translate3d(-200%, 0, 0);
+}
